@@ -1,0 +1,224 @@
+import tkinter as tk
+from tkinter import messagebox
+root = tk.Tk()
+root.title('三目並べ')
+root.geometry("400x300")
+rist = [0,1,2,3,4,5,6,7,8]
+
+def finish():
+    messagebox.showinfo('ゲーム完了',"ゲームをリセットします")
+    button1['text']=' '
+    button2['text']=' '
+    button3['text']=' '
+    button4['text']=' '
+    button5['text']=' '
+    button6['text']=' '
+    button7['text']=' '
+    button8['text']=' '
+    button9['text']=' '
+    rist[0] = 0
+    rist[1] = 1
+    rist[2] = 2
+    rist[3] = 3
+    rist[4] = 4
+    rist[5] = 5
+    rist[6] = 6
+    rist[7] = 7
+    rist[8] = 8
+    global cnt
+    cnt = 1
+    text.set(cnt)
+
+
+def click_btn100(msg):
+    messagebox.showinfo('結果', msg + "が勝ちました")
+    #finish()
+    
+def ktmk():
+    katimake = [(0,1,2),(3,4,5),(6,7,8),(0,3,6),(1,4,7),(2,5,8),(0,4,8),(2,4,6)]
+    for s in katimake:
+        a,b,c = s
+        if rist[a] == rist[b] == rist[c] == '〇':
+            click_btn100('〇')
+        elif rist[a] == rist[b] == rist[c] == '×':
+            click_btn100('×')
+
+def b_1(event):
+    global cnt
+    cnt += 1
+    #text.set(cnt)
+    button1['state'] = tk.DISABLED
+    if cnt%2 == 0:
+        button1['text']='〇'
+        rist[0] = '〇'
+        ktmk()
+    else:
+        button1['text']='×'
+        rist[0] = '×'
+        ktmk()
+
+def b_2(event): 
+    global cnt
+    cnt += 1
+    #text.set(cnt)
+    button2['state'] = tk.DISABLED
+    if cnt%2 == 0:
+        button2['text']='〇'
+        rist[1] = '〇'
+        ktmk()
+    else:
+        button2['text']='×'
+        rist[1] = '×'
+        ktmk()
+
+def  b_3(event):
+    button3['state'] = tk.DISABLED
+    global cnt
+    cnt += 1
+    #text.set(cnt)
+    if cnt%2 == 0:
+        button3['text']='〇'
+        rist[2] = '〇'
+        ktmk()
+    else:
+        button3['text']='×'
+        rist[2] = '×'
+        ktmk()
+
+def b_4(event):
+    global cnt
+    cnt += 1
+    #text.set(cnt)
+    button4['state'] = tk.DISABLED
+    if cnt%2 == 0:
+        button4['text']='〇'
+        rist[3] = '〇'
+        ktmk()
+    else:
+        button4['text']='×'
+        rist[3] = '×'
+        ktmk()
+
+        
+def b_5(event):
+    global cnt
+    cnt += 1
+    #text.set(cnt)
+    button5['state'] = tk.DISABLED
+    if cnt%2 == 0:
+        button5['text']='〇'
+        rist[4] = '〇'
+        ktmk()
+    else:
+        button5['text']='×'
+        rist[4] = '×'
+        ktmk()
+
+def b_6(event):
+    global cnt
+    cnt+=1
+    #text.set(cnt)
+    button6['state'] = tk.DISABLED
+    if cnt%2 ==0:
+        button6['text']='〇'
+        rist[5] = '〇'
+        ktmk()
+    else:
+        button6['text']='×'
+        rist[5] = '×'
+        ktmk()
+
+def b_7(event):
+    global cnt
+    cnt+=1
+    #text.set(cnt)
+    button7['state'] = tk.DISABLED
+    if cnt%2==0:
+        button7['text']='〇'
+        rist[6] = '〇'
+        ktmk()
+    else:
+        button7['text']='×'
+        rist[6] = '×'
+        ktmk()
+        
+def b_8(event):
+    global cnt
+    cnt += 1
+    #text.set(cnt)
+    button8['state'] = tk.DISABLED
+    if cnt%2 == 0:
+        button8['text']='〇'
+        rist[7] = '〇'
+        ktmk()
+    else:
+        button8['text']='×'
+        rist[7] = '×'
+        ktmk()
+
+def b_9(event):
+    global cnt
+    cnt += 1
+    #text.set(cnt)
+    button9['state'] = tk.DISABLED
+    if cnt%2 == 0:
+        button9['text']='〇'
+        rist[8] = '〇'
+        ktmk()
+    else:
+        button9['text']='×'
+        rist[8] = '×'
+        ktmk()
+
+
+canvas = tk.Canvas(root,width=800,height=300)
+canvas.pack()
+canvas.create_line(99,84,309,84,fill="Black", width =7)
+canvas.create_line(99,162,309,162,fill="Black", width =7)
+canvas.create_line(167,10,167,237,fill="Black", width =7)
+canvas.create_line(240,10,240,237,fill="Black", width =7)
+canvas.create_line(99,6,309,6,fill="Black", width =7)
+canvas.create_line(99,240,309,240,fill="Black", width =7)
+canvas.create_line(95,3,95,244,fill="Black", width =7)
+canvas.create_line(312,3,312,244,fill="Black", width =7)
+
+cnt = 1
+
+button1 = tk.Button(root,text="   ",relief='flat',state=tk.NORMAL,width=8,height=4)
+button2 = tk.Button(root,text="   ",relief='flat',state=tk.NORMAL,width=8,height=4)
+button3 = tk.Button(root,text="   ",relief='flat',state=tk.NORMAL,width=8,height=4)
+button4 = tk.Button(root,text="   ",relief='flat',state=tk.NORMAL,width=8,height=4)
+button5 = tk.Button(root,text="   ",relief='flat',state=tk.NORMAL,width=8,height=4)
+button6 = tk.Button(root,text="   ",relief='flat',state=tk.NORMAL,width=8,height=4)
+button7 = tk.Button(root,text="   ",relief='flat',state=tk.NORMAL,width=8,height=4)
+button8 = tk.Button(root,text="   ",relief='flat',state=tk.NORMAL,width=8,height=4)
+button9 = tk.Button(root,text="   ",relief='flat',state=tk.NORMAL,width=8,height=4)
+
+button1.bind("<Button-1>",b_1)
+button2.bind("<Button-1>",b_2)
+button3.bind("<Button-1>",b_3)
+button4.bind("<Button-1>",b_4)
+button5.bind("<Button-1>",b_5)
+button6.bind("<Button-1>",b_6)
+button7.bind("<Button-1>",b_7)
+button8.bind("<Button-1>",b_8)
+button9.bind("<Button-1>",b_9)
+
+button1.place(x=99,y=10)
+button2.place(x=171,y=10)
+button3.place(x=243,y=10)
+button4.place(x=99,y=88)
+button5.place(x=171,y=88)
+button6.place(x=243,y=88)
+button7.place(x=99,y=166)
+button8.place(x=171,y=166)
+button9.place(x=243,y=166)
+
+
+#text = tk.StringVar(root)
+#text.set(cnt)
+#label = tk.Label(root,textvariable=text)
+
+#label.pack()
+
+root.mainloop()
